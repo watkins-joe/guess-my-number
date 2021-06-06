@@ -57,7 +57,7 @@ document.querySelector('.check').addEventListener('click', function () {
     displayMessage('You win! You found the secret number!');
 
     //displays the secret number in place of '?' upon winning
-    document.querySelector('.message').textContent = secretNumber;
+    document.querySelector('.number').textContent = secretNumber;
 
     //change body bg color to green on win
     document.querySelector('body').style.backgroundColor = '#60b347';
