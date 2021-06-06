@@ -18,7 +18,10 @@
 // console.log(document.querySelector('.guess').value);
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-document.querySelector('.number').textContent = secretNumber;
+
+// uncomment to debug, applies secret number to '?'
+// document.querySelector('.number').textContent = secretNumber;
+
 let score = 20;
 let highscore = 0;
 
@@ -47,10 +50,14 @@ document.querySelector('.check').addEventListener('click', function () {
   if (!guess) {
     // document.querySelector('.message').textContent = 'No number entered!';
     displayMessage('No number entered!');
+
     // when player wins
   } else if (guess === secretNumber) {
     // document.querySelector('.message').textContent =
     displayMessage('You win! You found the secret number!');
+
+    //displays the secret number in place of '?' upon winning
+    document.querySelector('.message').textContent = secretNumber;
 
     //change body bg color to green on win
     document.querySelector('body').style.backgroundColor = '#60b347';
@@ -62,6 +69,7 @@ document.querySelector('.check').addEventListener('click', function () {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
     }
+
     //set high score on win
     document.querySelector('.highscore').textContent = score;
 
@@ -75,6 +83,10 @@ document.querySelector('.check').addEventListener('click', function () {
     } else {
       //   document.querySelector('.message').textContent = 'You lost the game!';
       displayMessage('You lost the game!');
+
+      // displays secret number upon losing
+      document.querySelector('.number').textContent = secretNumber;
+
       document.querySelector('.score').textContent = 0;
     }
     // when guess is too high
